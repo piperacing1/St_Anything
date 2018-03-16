@@ -73,4 +73,3 @@ def generateEvent(String name, String value) {
 
 def installed() {
 }
-
