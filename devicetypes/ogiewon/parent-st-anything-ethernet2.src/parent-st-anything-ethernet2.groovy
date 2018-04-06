@@ -49,7 +49,7 @@ metadata {
 	preferences {
 		input "ip", "text", title: "ESP8266 IP Address", description: "IP Address in form 192.168.1.226", required: true, displayDuringSetup: true
 		input "port", "text", title: "ESP8266 Port", description: "port in form of 8090", required: true, displayDuringSetup: true
-		input "mac", "text", title: "ESP8266 MAC Addr", description: "MAC Address in form of 02A1B2C3D4E5", required: true, displayDuringSetup: true
+		input "mac", "text", title: "ESP8266 MAC Address", description: "MAC Address in form of 02A1B2C3D4E5", required: true, displayDuringSetup: true
 		input "numButtons", "number", title: "Number of Buttons", description: "Number of Buttons, 0 to n", required: true, displayDuringSetup: true
 	}
 

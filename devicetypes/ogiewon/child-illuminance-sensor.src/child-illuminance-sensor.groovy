@@ -28,6 +28,8 @@ metadata {
 		capability "Sensor"
         
         attribute "lastUpdated", "String"
+        
+        command "generateEvent", ["string", "string"]
 	}
 
 	simulator {
