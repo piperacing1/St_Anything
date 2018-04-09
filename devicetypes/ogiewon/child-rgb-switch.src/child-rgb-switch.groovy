@@ -44,6 +44,7 @@ metadata {
 	command "purple"
 	command "yellow"
 	command "white"
+    command "random"
 	}
 
 	simulator {
@@ -116,9 +117,14 @@ metadata {
 		    state "offwhite", label:"White", action:"white", icon:"st.illuminance.illuminance.dark", backgroundColor:"#D8D8D8"
 		    state "onwhite", label:"White", action:"white", icon:"st.illuminance.illuminance.bright", backgroundColor:"#FFFFFF"
 		}
+        
+        standardTile("random", "device.white", width: 2, height: 2, inactiveLabel: false, canChangeIcon: false) {
+		    state "offrandom", label:"WhiteRandon", action:"randomwhite", icon:"st.illuminance.illuminance.dark", backgroundColor:"#335588"
+		    state "onwhiterandom", label:"WhiteRandom", action:"randomwhite", icon:"st.illuminance.illuminance.bright", backgroundColor:"#FFFFFF"
+		}
 		main(["switch"])
 		details(["switch", "level", "color", "softwhite","daylight","warmwhite","red","green","blue","white","cyan",
-			 "magenta","orange","purple","yellow","lastUpdated"])
+			 "magenta","orange","purple","yellow","randomlastUpdated"])
 	}
 }
 
@@ -351,7 +357,8 @@ def colorNameToRgb(color) {
 
 	[name:"Purple", 	red: 170, green: 0,	blue: 255],
 	[name:"Yellow", 	red: 255, green: 255,   blue: 0	],
-	[name:"White", 		red: 255, green: 255,   blue: 255]
+	[name:"White", 		red: 255, green: 255,   blue: 255],
+    [Name:"Random",     red: Math.random(255), green: Math.random(255), blue: Math.random(255)]
     ]
     def colorData = [:]
     colorData = colors.find { it.name == color }
@@ -362,7 +369,7 @@ def toggleTiles(color) {
     state.colorTiles = []
     if ( !state.colorTiles ) {
     	state.colorTiles = ["softwhite","daylight","warmwhite","red","green","blue","cyan","magenta",
-			    "orange","purple","yellow","white"]
+			    "orange","purple","yellow","white","random"]
     }
 
     def cmds = []
@@ -394,6 +401,7 @@ def orange() 	{ doColorButton("Orange") }
 def purple()	{ doColorButton("Purple") }
 def yellow() 	{ doColorButton("Yellow") }
 def white() 	{ doColorButton("White") }
+def random()    { doColorButton("Random") }
 
 def installed() {
 
