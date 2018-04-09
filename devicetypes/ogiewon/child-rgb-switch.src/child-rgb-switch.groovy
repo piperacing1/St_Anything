@@ -119,12 +119,12 @@ metadata {
 		}
         
         standardTile("random", "device.white", width: 2, height: 2, inactiveLabel: false, canChangeIcon: false) {
-		    state "offrandom", label:"WhiteRandon", action:"randomwhite", icon:"st.illuminance.illuminance.dark", backgroundColor:"#335588"
-		    state "onwhiterandom", label:"WhiteRandom", action:"randomwhite", icon:"st.illuminance.illuminance.bright", backgroundColor:"#FFFFFF"
+		    state "offrandom", label:"Randon", action:"random", icon:"st.illuminance.illuminance.dark", backgroundColor:"#335588"
+		    state "onrandom", label:"Random", action:"random", icon:"st.illuminance.illuminance.bright", backgroundColor:"#FFFFFF"
 		}
 		main(["switch"])
 		details(["switch", "level", "color", "softwhite","daylight","warmwhite","red","green","blue","white","cyan",
-			 "magenta","orange","purple","yellow","randomlastUpdated"])
+			 "magenta","orange","purple","yellow","random","lastUpdated"])
 	}
 }
 
@@ -358,7 +358,7 @@ def colorNameToRgb(color) {
 	[name:"Purple", 	red: 170, green: 0,	blue: 255],
 	[name:"Yellow", 	red: 255, green: 255,   blue: 0	],
 	[name:"White", 		red: 255, green: 255,   blue: 255],
-    [Name:"Random",     red: Math.random(255), green: Math.random(255), blue: Math.random(255)]
+    [Name:"Random",     red: Math.round(Math.random() *255), green: Math.round(Math.random() *255), blue: Math.round(Math.random() *255)]
     ]
     def colorData = [:]
     colorData = colors.find { it.name == color }
